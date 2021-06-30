@@ -123,6 +123,7 @@ def convert_data_product_standards():
         # Write resulted JSON only if it's changed to satisfy pre-commit hook
         if DeepDiff(current_spec, openapi, ignore_order=True) != {}:
             print(f"Exporting {out_file}")
+            out_file.parent.mkdir(parents=True, exist_ok=True)
             out_file.write_text(
                 json.dumps(openapi, indent=2, ensure_ascii=False) + "\n"
             )
