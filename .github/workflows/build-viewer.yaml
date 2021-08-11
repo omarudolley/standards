@@ -1,0 +1,16 @@
+name: Trigger definition viewer build for these standards
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: Azure/pipelines@v1
+      with:
+        azure-devops-project-url: 'https://dev.azure.com/DLIOy/lifeengine.io'
+        azure-pipeline-name: 'Definition viewer\DLI sandbox definition viewer'
+        azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
