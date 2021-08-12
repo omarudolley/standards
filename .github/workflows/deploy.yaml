@@ -16,14 +16,11 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Install pre-commit
-        run: pip install pre-commit
+      - name: Install pre-commit and Poetry
+        run: pip install pre-commit poetry
 
       - name: Run pre-commit
         run: pre-commit run --all-files || exit 1
-
-      - name: Install Poetry
-        run: pip install poetry
 
       - name: Install dependencies
         run: poetry install
