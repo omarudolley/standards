@@ -19,11 +19,11 @@ jobs:
       - name: Install pre-commit and Poetry
         run: pip install pre-commit poetry
 
-      - name: Run pre-commit
-        run: pre-commit run --all-files || exit 1
-
       - name: Install dependencies
         run: poetry install
+
+      - name: Run pre-commit
+        run: pre-commit run --all-files || exit 1
 
       - name: Bootstrap HTML files for standards
         run: poetry run invoke bootstrap-html
