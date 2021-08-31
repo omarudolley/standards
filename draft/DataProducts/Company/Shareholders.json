@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Basic Shareholders Info",
-    "description": "Data Product for Basic Shareholders info",
+    "title": "Shareholders Info",
+    "description": "Data Product for Shareholders info",
     "version": "1.0.0"
   },
   "paths": {
@@ -159,7 +159,7 @@
             "example": "A"
           },
           "votesPerShare": {
-            "title": "Votes Per Share",
+            "title": "Votes per share",
             "type": "integer",
             "description": "Number of votes per share in the share series",
             "example": 1
@@ -178,7 +178,7 @@
         "type": "object",
         "properties": {
           "companyId": {
-            "title": "Company Id",
+            "title": "Company ID",
             "type": "string",
             "description": "The ID of the company, only supports Finnish business ID's",
             "example": "2464491-9"
@@ -195,14 +195,16 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ShareSeries"
-            }
+            },
+            "description": "List of share series"
           },
           "owners": {
             "title": "Owners",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Owners"
-            }
+            },
+            "description": "List of owners"
           }
         }
       },

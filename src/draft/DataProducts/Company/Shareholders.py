@@ -11,7 +11,7 @@ class ShareSeries(BaseModel):
     )
     votesPerShare: int = Field(
         ...,
-        title="Votes Per Share",
+        title="Votes per share",
         description="Number of votes per share in the share series",
         example=1,
     )
@@ -50,21 +50,23 @@ class Owners(BaseModel):
 class ShareholdersInfoRequest(BaseModel):
     companyId: str = Field(
         ...,
-        title="Company Id",
+        title="Company ID",
         description="The ID of the company, only supports Finnish business ID's",
         example="2464491-9",
     )
 
 
 class ShareholdersInfoResponse(BaseModel):
-    shareSeries: List[ShareSeries] = Field(title="Share series")
-    owners: List[Owners]
+    shareSeries: List[ShareSeries] = Field(
+        ..., title="Share series", description="List of share series"
+    )
+    owners: List[Owners] = Field(..., title="Owners", description="List of owners")
 
 
 STANDARD = DataProductStandard(
-    description="Data Product for Basic Shareholders info",
+    description="Data Product for Shareholders info",
     request=ShareholdersInfoRequest,
     response=ShareholdersInfoResponse,
     route_description="Information about the shareholders of the company",
-    summary="Basic Shareholders Info",
+    summary="Shareholders Info",
 )
