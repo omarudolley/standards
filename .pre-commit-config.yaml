@@ -6,6 +6,18 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+      - id: check-merge-conflict
+      - id: debug-statements
+      # All non-bat files should end with LF
+      - id: mixed-line-ending
+        name: Ensure LF endings on most files
+        args: ["--fix=lf"]
+        exclude: \.bat$
+      # Bat files should end with CRLF
+      - id: mixed-line-ending
+        name: Ensure CFLF endings on Windows files
+        args: ["--fix=crlf"]
+        files: \.bat$
   - repo: https://github.com/ryanrhee/shellcheck-py
     rev: v0.7.2.1
     hooks:
