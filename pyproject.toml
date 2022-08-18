@@ -7,13 +7,17 @@ authors = ["Digital Living International Ltd"]
 [tool.poetry.dependencies]
 python = "^3.9"
 pydantic = "^1.8.2"
-fastapi = "^0.70.0"
+fastapi = "^0.79.0"
 stringcase = "^1.2.0"
 deepdiff = "^5.5.0"
 
 [tool.poetry.dev-dependencies]
 invoke = "^1.4.1"
 Jinja2 = "^2.11.3"
+
+[tool.skjold]
+report_only = false
+sources = ["pyup", "gemnasium"]
 
 [build-system]
 requires = ["poetry>=1.0.0"]
